@@ -1,0 +1,24 @@
+{{ $baseurl := .Site.BaseURL }}
+{{ $tax :=  .Site.Taxonomies}} 
+<aside id="categories-2" class="widget widget_categories">
+    <h3 class="widget-title">Categories</h3>
+    <ul>
+    {{ range .Site.Params.Categories }}
+        <li class="cat-item">
+            <a rel="nofollow" href="/categories/{{ . | urlize }}/">{{ . }}</a>
+        </li>
+    {{ end }}
+    </ul>
+</aside>
+
+<aside id="categories-2" class="widget widget_categories">
+    <h3 class="widget-title">Tags</h3>
+    <ul>
+    {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        <li class="cat-item">
+        <a href="{{$baseurl}}/tags/{{ $name | urlize }}">{{ $name }}</a>{{ $tax.tags.Count $name }}
+        </li>
+        <br/>
+    {{ end }}
+    </ul>
+</aside>

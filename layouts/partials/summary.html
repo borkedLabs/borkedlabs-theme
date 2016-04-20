@@ -1,0 +1,39 @@
+<article class="post type-post status-publish format-standard hentry">
+
+	<!-- .entry-header -->
+	<header class="entry-header">
+
+	{{ $baseurl := .Site.BaseURL }}
+
+        <h1 class="entry-title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+
+		<div class="entry-meta">
+			<span class="entry-date">
+				<time class="entry-date" datetime="{{ .Date }}">
+					{{ .Date.Format "January 2, 2006" }}
+				</time>
+			</span>
+		</div><!-- .entry-meta -->
+
+	</header>
+
+	<div class="entry-content">
+		{{ if .Params.summary }}
+		{{ .Params.summary | markdownify }}
+		{{ else }}
+		{{ .Summary }}
+		{{ end}}
+        </br>
+        </br>
+        <a href="{{ .Permalink }}">Read more</a>
+	</div>
+    <!-- .entry-content -->
+
+	<footer class="entry-meta">
+		<span class="tag-links">
+			{{ range .Params.tags }}
+                <a href="{{ $baseurl}}/tags/{{ lower . | urlize }}" rel="tag">{{ . }}</a>
+            {{ end }}
+		</span>
+	</footer>
+</article> <!-- #post-## -->

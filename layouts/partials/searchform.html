@@ -1,0 +1,17 @@
+<script type="text/javascript">
+    function site_search(obj) {
+    	var host = window.location.host;
+        obj.q.value = "site:" + host + " " + obj.ss_q.value;
+    }
+</script>
+
+<aside id="search-2" class="widget widget_search">
+	<form role="search" class="searchform" action="//www.google.com/search" method="get" onSubmit="site_search(this)">
+        <div>
+            <input name="q" type="hidden" />
+            <label class="screen-reader-text" for="ss_q">Search for:</label>
+            <input type="text" value="" name="ss_q" id="ss_q" />
+            <input type="submit" id="searchsubmit" value="Search" />
+        </div>
+	</form>
+</aside>
